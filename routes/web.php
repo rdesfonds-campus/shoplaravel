@@ -13,10 +13,11 @@ Route::get('/test', function () {
 });
 
 
-// Maintenant PHP sait ce qu'est "PageController" [cite: 27]
-Route::get('/welcome', [PageController::class, 'welcome']);
+// Vérifie bien que le ->name('welcome') est présent
+Route::get('/welcome', [PageController::class, 'welcome'])->name('welcome');
 
-Route::get('/about', [PageController::class, 'about']);
+// Et celui-ci aussi
+Route::get('/about', [PageController::class, 'about'])->name('about');
 
 Route::get('/produit/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/boutique/vêtements', [PageController::class, 'shop'])->name('shop');
