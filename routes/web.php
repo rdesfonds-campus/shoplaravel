@@ -7,9 +7,7 @@ use App\Models\Category;
 // Importation du modèle Product pour l'exercice
 use App\Models\Product;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'welcome'])->name('home');
 
 Route::get('/test', function () {
     return 'Hello Laravel';
@@ -34,11 +32,13 @@ Route::get('/categorie/{id}', function ($id) {
         'products' => $products
     ]);
 })->name('category.show');
-
 Route::get('/welcome', [PageController::class, 'welcome'])->name('welcome');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/produit/{id}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/boutique/vêtements', [PageController::class, 'shop'])->name('shop');
+
+Route::get('/produit/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
 Route::get('/creer-test', function () {
     // On crée la catégorie d'un seul coup
     Category::create([

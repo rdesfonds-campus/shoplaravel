@@ -18,4 +18,5 @@ class CategoryController extends Controller
 
         return "La catégorie a été créée avec succès !";
     }
+    
 }
