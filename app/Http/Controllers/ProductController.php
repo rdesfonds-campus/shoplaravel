@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,4 +19,10 @@ class ProductController extends Controller
 
         return view('products.index', ['products' => $products]);
     }
+
+    // Exemple si tu ajoutes une page produit plus tard :
+    // public function show(Product $product)
+    // {
+    //     return view('products.show', compact('product'));
+    // }
 }

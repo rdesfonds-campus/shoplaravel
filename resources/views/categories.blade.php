@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <title>Mes Catégories</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
     <h1>Liste des catégories</h1>
 
     <ul>
-        @foreach ($categories as $category)
+        @forelse ($categories as $category)
             <li>
-                <strong>{{ $category->name }}</strong> : 
+                <strong>{{ $category->name }}</strong>
                 {{ $category->description }}
             </li>
-        @endforeach
+        @empty
+            <li>Aucune catégorie.</li>
+        @endforelse
     </ul>
-</body>
-</html>
+@endsection
